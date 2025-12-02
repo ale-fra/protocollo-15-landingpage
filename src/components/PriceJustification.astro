@@ -1,0 +1,49 @@
+---
+import { config } from "../config";
+---
+
+<section class="bg-white border-b border-gray-200 py-10 md:py-16">
+    <div class="container mx-auto px-5 max-w-[900px]">
+        <h2
+            class="text-2xl md:text-3xl font-extrabold text-secondary text-center mb-6"
+        >
+            Perché costa solo {config.price}?
+        </h2>
+
+        <div
+            class="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-soft mb-6"
+        >
+            <p class="mb-4 text-gray-600 leading-relaxed">
+                Vogliamo essere trasparenti: il valore reale del materiale che
+                ricevi è di {config.originalPrice}. Potremmo venderlo a 67€ o
+                97€, come fanno molti altri programmi per genitori.
+            </p>
+
+            <div
+                class="bg-[#FFF7E6] p-4 border-l-4 border-[#F6A723] my-5 font-medium text-[#7a4a05] rounded"
+            >
+                È digitale. Niente costi di stampa o spedizione. E soprattutto:
+                vogliamo che ogni genitore possa permetterselo, anche chi sta
+                attraversando un momento difficile con il proprio figlio.
+            </div>
+
+            <p class="mb-4 text-gray-600 leading-relaxed">
+                Una sola seduta con un professionista costa 60–80€. Qui ottieni
+                un metodo pratico, validato e facile da seguire, che puoi
+                applicare da subito per migliorare davvero la comunicazione con
+                tuo figlio — a meno del costo di una pizza in famiglia.
+            </p>
+
+            <p class="text-gray-600 leading-relaxed">
+                <span
+                    class="inline-block bg-[#E3F6EE] text-primary px-2 py-0.5 rounded font-bold mr-1"
+                >
+                    Nota importante
+                </span>
+                Il prezzo di {config.price} è temporaneo. Serve per permettere a
+                più genitori possibili di accedere al metodo. Al termine della promozione,
+                il costo salirà a 67€.
+            </p>
+        </div>
+    </div>
+</section>

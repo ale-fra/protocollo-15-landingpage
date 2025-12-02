@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import divanoImage from '../assets/divano.png';
+---
+
+<section class="bg-white border-b border-gray-200 py-10 md:py-16">
+    <div class="container mx-auto px-5 max-w-[900px]">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-secondary text-center mb-10">Ti riconosci in questa scena?</h2>
+
+        <div class="bg-white border-2 border-secondary rounded-xl p-6 shadow-card">
+            <div class="flex flex-col md:flex-row gap-6 items-center">
+                <div class="flex-1 max-w-[450px]">
+                    <Image src={divanoImage} alt="Madre e figlio, silenzio" class="w-full h-auto rounded-lg shadow-soft object-cover block" />
+                    <div class="text-sm text-[#666] text-center mt-2.5 italic">
+                        "Siamo nella stessa stanza, ma a chilometri di distanza."
+                    </div>
+                </div>
+
+                <div class="flex-1">
+                    <h3 class="text-xl font-bold text-secondary mb-5">⚠️ La situazione attuale</h3>
+
+                    <div class="flex items-start gap-4 py-3.5 border-b border-gray-200 last:border-0">
+                        <div class="w-7 h-7 bg-secondary text-white rounded-full flex items-center justify-center font-bold shrink-0">1</div>
+                        <div><strong class="text-secondary font-bold">Il Muro di Gomma:</strong> Tu chiedi com'è andata. Lui risponde a monosillabi, o non risponde affatto.</div>
+                    </div>
+                    <div class="flex items-start gap-4 py-3.5 border-b border-gray-200 last:border-0">
+                        <div class="w-7 h-7 bg-secondary text-white rounded-full flex items-center justify-center font-bold shrink-0">2</div>
+                        <div><strong class="text-secondary font-bold">L'Isolamento Digitale:</strong> Passa ore "ipnotizzato" dallo schermo. Se provi a toglierlo, scoppia la terza guerra mondiale.</div>
+                    </div>
+                    <div class="flex items-start gap-4 py-3.5 border-b border-gray-200 last:border-0">
+                        <div class="w-7 h-7 bg-secondary text-white rounded-full flex items-center justify-center font-bold shrink-0">3</div>
+                        <div><strong class="text-secondary font-bold">Il Senso di Impotenza:</strong> Ti senti più un bancomat o un autista che un genitore.</div>
+                    </div>
+
+                    <div class="bg-white border-2 border-dashed border-primary p-4 rounded-lg mt-5 text-center text-primary-dark font-medium">
+                        "Se stai vivendo questa distanza, non è perché sei un cattivo genitore. È perché nessuno ti ha mai dato un metodo pratico per farti ascoltare davvero."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

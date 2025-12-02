@@ -1,0 +1,43 @@
+---
+import { config } from "../config";
+---
+
+<section class="bg-white py-10 md:py-16" id="garanzia-section">
+    <div class="container mx-auto px-5 max-w-[900px]">
+        <div
+            class="border-2 border-primary bg-success-bg text-center rounded-xl p-6 shadow-soft mb-10"
+        >
+            <h3 class="text-primary-dark font-bold text-xl mb-4">
+                🛡️ Garanzia Rischio Zero
+            </h3>
+            <p class="text-text-light">
+                Non decidere ora. Scarica il materiale, provalo per 14 giorni.
+                Se non vedi miglioramenti concreti nel dialogo con tuo figlio,
+                mandami una email e ti rimborserò l'intera cifra di {
+                    config.price
+                }. Senza domande.
+            </p>
+        </div>
+
+        <div class="text-center max-w-[600px] mx-auto">
+            <p class="text-lg mb-4">
+                <strong
+                    >In 15 giorni puoi passare dal silenzio totale a momenti di
+                    vera connessione.</strong
+                >
+            </p>
+            <p class="mb-4 text-text-light">Il primo passo tocca a te.</p>
+
+            <a
+                href={config.ctaUrl}
+                id="bottom-cta"
+                class="js-main-cta block w-full max-w-[400px] mx-auto mt-4 bg-primary text-white py-4 px-6 text-lg font-bold rounded-lg text-center border-b-4 border-primary-dark transition-all hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(46,125,107,0.4)] active:translate-y-0.5 active:border-b-0 active:mt-5"
+            >
+                SÌ, VOGLIO IL METODO A {config.price}
+            </a>
+            <p class="text-sm text-center text-text-light mt-1.5">
+                Offerta a tempo limitato
+            </p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="./img/favicon.ico" />
+    <meta name="description"
+        content="Protocollo 15: il metodo pratico per recuperare il dialogo con tuo figlio adolescente in 15 giorni.">
+    <title>Protocollo 15 - Riconnettiti con tuo figlio in 15 giorni</title>
+
+    <style>
+        /* =========================================
+           RESET & VARIABILI
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            /* PALETTE */
+            --primary: #2E7D6B;
+            /* Verde Ottanio */
+            --primary-dark: #25675A;
+            --secondary: #1C3F73;
+            /* Blu Notte */
+            --secondary-light: #F0F4F8;
+            --accent: #F6C453;
+            /* Oro */
+            --accent-light: #FFF9EB;
+            --text: #333333;
+            --text-light: #555555;
+            --bg-main: #F9FAFB;
+            --bg-white: #FFFFFF;
+
+            /* UI ELEMENTS */
+            --border-width: 2px;
+            --border-color: #E2E8F0;
+            --radius: 12px;
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+
+            --badge-red: #E02424;
+            --badge-red-bg: #FEF2F2;
+            --success-green: #059669;
+            --success-bg: #ECFDF5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            color: var(--text);
+            line-height: 1.5;
+            background: var(--bg-main);
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* TYPOGRAPHY */
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--secondary);
+            line-height: 1.15;
+            font-weight: 800;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        strong {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* =========================================
+           COMPONENTI UI
+           ========================================= */
+
+        .card {
+            background: var(--bg-white);
+            border: var(--border-width) solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 24px;
+        }
+
+        .card-strong {
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-card);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .badge-accent {
+            background: var(--accent-light);
+            color: #B45309;
+            border: 1px solid #FCD34D;
+        }
+
+        /* CTA BUTTONS */
+        .cta {
+            background: var(--primary);
+            color: #fff;
+            padding: 16px 24px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            display: block;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-dark);
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(46, 125, 107, 0.3);
+            width: 100%;
+            max-width: 400px;
+            margin: 16px auto 0;
+            cursor: pointer;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(46, 125, 107, 0.4);
+        }
+
+        .cta:active {
+            transform: translateY(2px);
+            border-bottom-width: 0;
+            margin-top: 20px;
+        }
+
+        .cta-sub {
+            font-size: 0.85rem;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        /* SEZIONI */
+        section {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .alt-bg {
+            background: #fff;
+        }
+
+        /* HERO COMPATTA */
+        .hero {
+            text-align: center;
+            background: radial-gradient(circle at top, #fff 0%, #f3f4f6 100%);
+            border-bottom: 1px solid var(--border-color);
+            /* padding: 40px 0; */
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.4;
+        }
+
+        /* === NUOVO COMPONENTE PRIMA/DOPO (RESPONSIVE) === */
+        .ba-mini {
+            margin: 18px auto 25px;
+            /* Aggiunto margine bottom */
+            max-width: 640px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            border: 1px solid #E8E3DD;
+            padding: 14px 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            /* Un tocco di ombra in più */
+        }
+
+        .ba-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7C818B;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .ba-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 12px;
+            align-items: center;
+            text-align: left;
+            /* Forza allineamento a sx per leggibilità */
+        }
+
+        .ba-col {
+            font-size: 0.95rem;
+            /* Leggermente più grande */
+        }
+
+        .ba-title {
+            display: block;
+            font-weight: 800;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ba-col-bad .ba-title {
+            color: var(--badge-red);
+        }
+
+        .ba-col-good .ba-title {
+            color: var(--primary);
+        }
+
+        .ba-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ba-col li {
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .ba-arrow {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            font-weight: 700;
+            padding: 0 10px;
+        }
+
+        /* MEDIA QUERY SPECIFICA PER IL COMPONENTE */
+        @media (max-width: 640px) {
+            .ba-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                text-align: center;
+                /* Centrato su mobile */
+            }
+
+            .ba-arrow {
+                text-align: center;
+                transform: rotate(90deg);
+                /* La freccia punta in basso su mobile */
+                margin: -5px 0;
+                /* Riduce lo spazio */
+            }
+
+            .ba-col {
+                background: #fdfdfd;
+                /* Leggero sfondo per separare visivamente */
+                padding: 10px;
+                border-radius: 8px;
+                border: 1px dashed #eee;
+            }
+        }
+
+        /* ================================================= */
+
+        .bundle-mockup {
+            width: 100%;
+            max-width: 580px;
+            margin: 15px auto;
+            border-radius: 16px;
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.1));
+        }
+
+        .bundle-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+        }
+
+        /* IMMAGINI EMOZIONALI */
+        .emotional-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow-soft);
+            object-fit: cover;
+            display: block;
+        }
+
+        .pain-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .target-layout {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 1fr;
+        }
+
+        /* DOLORE */
+        .pain-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pain-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .pain-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--secondary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .pain-quote {
+            background: var(--secondary-light);
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            font-style: italic;
+            color: var(--secondary);
+            margin-top: 10px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* NUOVO: DECOLPEVOLIZZAZIONE */
+        .no-guilt-box {
+            background: #fff;
+            border: 2px dashed var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        /* METODO & TIMELINE (Restyling) */
+        .method-grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 1fr;
+            margin-bottom: 30px;
+        }
+
+        .method-card {
+            background: #fff;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        .method-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .method-content h4 {
+            color: var(--secondary);
+            margin-bottom: 6px;
+            font-size: 1.1rem;
+        }
+
+        /* NUOVO: WHY IT WORKS */
+        .mechanism-box {
+            background: var(--accent-light);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border: 1px solid var(--accent);
+        }
+
+        .mechanism-box h4 {
+            margin-bottom: 15px;
+            color: #92400E;
+            text-align: center;
+        }
+
+        .mechanism-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .mechanism-list li::before {
+            content: "★";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Timeline Verticale Migliorata */
+        .timeline-container {
+            position: relative;
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 16px;
+            border: 2px solid var(--secondary);
+            /* Bordo forte */
+            box-shadow: var(--shadow-card);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        /* Linea verticale */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+            z-index: 1;
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-marker {
+            width: 30px;
+            height: 30px;
+            background: var(--accent-light);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .timeline-content h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* OFFERTA */
+        .offer-wrapper {
+            border: 2px solid var(--secondary);
+            border-radius: 16px;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .offer-header {
+            background: var(--secondary);
+            color: #fff;
+            padding: 12px;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+        }
+
+        .main-product {
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 2px dashed var(--border-color);
+        }
+
+        .bonus-list {
+            padding: 0 20px;
+        }
+
+        .bonus-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .bonus-item:last-child {
+            border-bottom: none;
+        }
+
+        .bonus-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .bonus-icon {
+            font-size: 1.3rem;
+        }
+
+        .bonus-text h4 {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .bonus-text p {
+            font-size: 0.8rem;
+            margin: 0;
+            color: var(--text-light);
+        }
+
+        /* NUOVO: TRANSFORMATION TEXT */
+        .bonus-transform {
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-style: italic;
+            margin-top: 2px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .bonus-right {
+            text-align: right;
+            min-width: 80px;
+        }
+
+        .price-strike {
+            text-decoration: line-through;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: block;
+        }
+
+        .price-free {
+            color: var(--badge-red);
+            font-weight: 700;
+            font-size: 0.85rem;
+            background: var(--badge-red-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .price-box {
+            background: var(--accent-light);
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .final-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+            letter-spacing: -2px;
+            margin: 5px 0;
+        }
+
+        /* TARGET, AUTHOR, REVIEWS, FAQ */
+        .target-card {
+            padding: 20px;
+            border: 2px solid;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .target-card.yes {
+            border-color: var(--primary);
+        }
+
+        .target-card.no {
+            border-color: var(--badge-red);
+        }
+
+        .target-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+        }
+
+        .yes .target-list li::before {
+            content: "✓";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .no .target-list li::before {
+            content: "✗";
+            color: var(--badge-red);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .author-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .author-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            object-fit: cover;
+        }
+
+        .reviews-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1fr;
+            margin-top: 20px;
+        }
+
+        .review-img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .faq-item {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-q {
+            padding: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-q:hover {
+            background: var(--bg-main);
+        }
+
+        .faq-q::after {
+            content: "▼";
+            font-size: 0.8rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-q::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 16px;
+        }
+
+        .faq-item.active .faq-a {
+            max-height: 500px;
+            padding-bottom: 16px;
+        }
+
+        /* SMART STICKY CTA */
+        .mobile-sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 12px 16px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            transform: translateY(110%);
+            transition: transform 0.3s ease-in-out;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .mobile-sticky-cta.is-visible {
+            transform: translateY(0);
+        }
+
+        .mobile-sticky-cta .cta {
+            margin: 0;
+            padding: 12px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        /* FOOTER NUOVO (CLEAN) */
+        footer {
+            background: var(--bg-white);
+            color: var(--text-light);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* MEDIA QUERY */
+        @media(min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+                margin-bottom: 20px;
+            }
+
+            .container {
+                padding: 60px 20px;
+            }
+
+            .hero {
+                padding: 50px 0;
+            }
+
+            /* .hero-comparison { flex-direction: row; justify-content: space-around; text-align: left; } RIMOSSO VECCHIO */
+            .pain-layout {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .pain-content {
+                flex: 1;
+            }
+
+            .pain-visual {
+                flex: 1;
+                max-width: 450px;
+            }
+
+            .method-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .method-card {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            /* Layout diverso per desktop */
+            .target-layout {
+                grid-template-columns: 0.8fr 1.2fr;
+                align-items: start;
+            }
+
+            .target-visual {
+                position: sticky;
+                top: 20px;
+            }
+
+            .author-card {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .mobile-sticky-cta {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <span class="badge badge-accent">Per genitori di figli 11-18 anni</span>
+            <h1>Recupera il dialogo con tuo figlio adolescente in 15 giorni</h1>
+            <p class="hero-sub">Meno urla. Niente porte sbattute. Niente silenzi imbarazzanti. Un metodo pratico
+                passo-passo.</p>
+
+            <div class="ba-mini">
+                <div class="ba-label">Cosa cambia in 15 giorni</div>
+                <div class="ba-grid">
+                    <div class="ba-col ba-col-bad">
+                        <span class="ba-title">Prima</span>
+                        <ul>
+                            <li>❌ Lui chiuso in camera</li>
+                            <li>❌ Risposte a monosillabi</li>
+                            <li>❌ Tensioni e silenzi</li>
+                        </ul>
+                    </div>
+                    <div class="ba-arrow">→</div>
+                    <div class="ba-col ba-col-good">
+                        <span class="ba-title">Dopo 15 giorni</span>
+                        <ul>
+                            <li>✅ Dialoghi brevi ma fluidi</li>
+                            <li>✅ Meno conflitti</li>
+                            <li>✅ Fiducia che si ricostruisce</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bundle-mockup">
+                <img src="./img/bundle-720.avif"
+                    srcset="./img/bundle-480.avif 480w, ./img/bundle-720.avif 720w, ./img/bundle-1280.avif 1280w"
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 70vw, 400px" alt="Protocollo 15 Bundle">
+            </div>
+
+            <a href="https://pay.dialogodigitale.it/offerta-protocollo-15" class="cta" id="main-hero-cta">ACCEDI AL
+                METODO A 27€</a>
+            <p class="cta-sub">Sconto 85% • Accesso Immediato</p>
+        </div>
+    </header>
+
+    <section class="alt-bg">
+        <div class="container">
+            <h2 style="margin-bottom: 40px;">Ti riconosci in questa scena?</h2>
+
+            <div class="card card-strong">
+                <div class="pain-layout">
+                    <div class="pain-visual">
+                        <img src="./img/divano.png" alt="Madre e figlio, silenzio" class="emotional-img">
+                        <div
+                            style="font-size:0.85rem; color:#666; text-align:center; margin-top:10px; font-style:italic;">
+                            "Siamo nella stessa stanza, ma a chilometri di distanza."
+                        </div>
+                    </div>
+
+                    <div class="pain-content">
+                        <h3 style="margin-bottom: 20px;">⚠️ La situazione attuale</h3>
+
+                        <div class="pain-list-item">
+                            <div class="pain-icon">1</div>
+                            <div><strong>Il Muro di Gomma:</strong> Tu chiedi com'è andata. Lui risponde a monosillabi,
+                                o non risponde affatto.</div>
+                        </div>
+                        <div class="pain-list-item">
+                            <div class="pain-icon">2</div>
+                            <div><strong>L'Isolamento Digitale:</strong> Passa ore "ipnotizzato" dallo schermo. Se provi
+                                a toglierlo, scoppia la terza guerra mondiale.</div>
+                        </div>
+                        <div class="pain-list-item">
+                            <div class="pain-icon">3</div>
+                            <div><strong>Il Senso di Impotenza:</strong> Ti senti più un bancomat o un autista che un
+                                genitore.</div>
+                        </div>
+
+                        <div class="no-guilt-box">
+                            "Se stai vivendo questa distanza, non è perché sei un cattivo genitore. È perché nessuno ti
+                            ha mai dato un metodo pratico per farti ascoltare davvero."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Come funziona il Metodo 5-5-5</h2>
+            <p style="text-align:center; max-width:700px; margin:0 auto 40px;">
+                Dimentica la teoria psicologica complicata. Questo è un micro-rituale strutturato di 15 minuti al
+                giorno.
+            </p>
+
+            <div class="method-grid">
+                <div class="method-card">
+                    <div class="method-number">1</div>
+                    <div class="method-content">
+                        <h4>5 min ASCOLTA</h4>
+                        <p>Tecniche di ascolto attivo per abbassare le difese senza giudicare.</p>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <div class="method-number">2</div>
+                    <div class="method-content">
+                        <h4>5 min PARLA</h4>
+                        <p>Script esatti per comunicare senza generare conflitto immediato.</p>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <div class="method-number">3</div>
+                    <div class="method-content">
+                        <h4>5 min ALLINEA</h4>
+                        <p>Piccole azioni quotidiane per ricostruire la fiducia persa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mechanism-box">
+                <h4>🧠 Perché questo approccio funziona dove altri falliscono?</h4>
+                <ul class="mechanism-list">
+                    <li><strong>Non cerchi di "cambiare" tuo figlio:</strong> abbassi la sua reattività emotiva.</li>
+                    <li><strong>Non lo invadi:</strong> apri micro-finestre di dialogo tollerabili per un adolescente.
+                    </li>
+                    <li><strong>Non litighi:</strong> crei un terreno neutro dove può fidarsi di nuovo di te.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-container">
+                <h3 style="text-align:center; font-size:1.2rem; margin-bottom:30px; color:var(--secondary)">📍 Il tuo
+                    viaggio nei 15 Giorni</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">🔥</div>
+                    <div class="timeline-content">
+                        <h4>Giorni 1–3: Disinnesco</h4>
+                        <p>Smorzi le tensioni e interrompi il copione del "boh" e dei grugniti.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">🌱</div>
+                    <div class="timeline-content">
+                        <h4>Giorni 4–10: Ricostruzione</h4>
+                        <p>Ripristini un dialogo base senza urla, porte sbattute o drammi.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">🤝</div>
+                    <div class="timeline-content">
+                        <h4>Giorni 11–15: Connessione</h4>
+                        <p>Costruisci un nuovo rituale di ascolto che dura nel tempo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top: 30px;">
+                <a href="https://pay.dialogodigitale.it/offerta-protocollo-15" class="cta"
+                    style="margin-bottom:10px">VOGLIO INIZIARE IL VIAGGIO DI 15 GIORNI</a>
+                <p class="cta-sub">Garanzia Rischio Zero: Provalo per 14 giorni</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt-bg" id="offerta">
+        <div class="container">
+            <h2 style="margin-bottom:10px">Il Kit Completo "Salva-Dialogo"</h2>
+            <p style="text-align:center; margin-bottom:30px">Tutto quello che ti serve per sbloccare la situazione,
+                oggi.</p>
+
+            <div class="offer-wrapper">
+                <div class="offer-header">
+                    🔥 OFFERTA BLACK FRIDAY: 5 BONUS INCLUSI
+                </div>
+
+                <div class="main-product">
+                    <img src="./img/Copertina.png"
+                        style="width:160px; margin-bottom:15px; box-shadow:0 5px 15px rgba(0,0,0,0.2); transform:rotate(-2deg);"
+                        alt="Cover">
+                    <h3 style="font-size:1.5rem; color:var(--primary)">Protocollo 15 (Metodo Completo)</h3>
+                    <p>La guida passo-passo in formato eBook PDF + Audio MP3.</p>
+                </div>
+
+                <div class="bonus-list">
+                    <div class="bonus-item">
+                        <div class="bonus-left">
+                            <div class="bonus-icon">🎁</div>
+                            <div class="bonus-text">
+                                <h4>Script Anti-Conflitto</h4>
+                                <span class="bonus-transform">⭐ Trasformazione: evita escalation e litigi in meno di 30
+                                    secondi.</span>
+                            </div>
+                        </div>
+                        <div class="bonus-right">
+                            <span class="price-strike">37€</span>
+                            <span class="price-free">GRATIS</span>
+                        </div>
+                    </div>
+
+                    <div class="bonus-item">
+                        <div class="bonus-left">
+                            <div class="bonus-icon">🚫</div>
+                            <div class="bonus-text">
+                                <h4>I 12 Errori Digitali</h4>
+                                <span class="bonus-transform">⭐ Trasformazione: smetti di peggiorare la situazione senza
+                                    accorgertene.</span>
+                            </div>
+                        </div>
+                        <div class="bonus-right">
+                            <span class="price-strike">29€</span>
+                            <span class="price-free">GRATIS</span>
+                        </div>
+                    </div>
+
+                    <div class="bonus-item">
+                        <div class="bonus-left">
+                            <div class="bonus-icon">📅</div>
+                            <div class="bonus-text">
+                                <h4>Planner 15 Giorni</h4>
+                                <span class="bonus-transform">⭐ Trasformazione: segui il metodo senza stress, anche se
+                                    lavori tutto il giorno.</span>
+                            </div>
+                        </div>
+                        <div class="bonus-right">
+                            <span class="price-strike">19€</span>
+                            <span class="price-free">GRATIS</span>
+                        </div>
+                    </div>
+
+                    <div class="bonus-item">
+                        <div class="bonus-left">
+                            <div class="bonus-icon">🎧</div>
+                            <div class="bonus-text">
+                                <h4>Audio "Reset Emotivo"</h4>
+                                <p>Ritrova la calma in 5 min</p>
+                            </div>
+                        </div>
+                        <div class="bonus-right">
+                            <span class="price-strike">19€</span>
+                            <span class="price-free">GRATIS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-box">
+                    <div
+                        style="font-weight:600; text-transform:uppercase; color:var(--text-light); font-size:0.9rem; letter-spacing:1px">
+                        Valore Totale: <span style="text-decoration:line-through">188€</span></div>
+                    <div style="margin-top:10px; font-weight:700; color:var(--secondary)">OFFERTA SPECIALE OGGI:</div>
+                    <div class="final-price">27€</div>
+
+                    <a href="https://pay.dialogodigitale.it/offerta-protocollo-15" class="cta"
+                        style="margin-top:20px; box-shadow: 0 10px 20px rgba(46, 125, 107, 0.25);">SCARICA TUTTO A
+                        27€</a>
+                    <p style="font-size:0.85rem; margin-top:12px; color:var(--text-light)">Garanzia Soddisfatti o
+                        Rimborsati 14 Giorni</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Questo metodo fa per te?</h2>
+
+            <div class="target-layout">
+                <div class="target-visual">
+                    <img src="./img/cucina.png" alt="Madre e figlio al tavolo" class="emotional-img">
+                </div>
+
+                <div class="target-content">
+                    <div class="target-card yes" style="margin-bottom: 20px;">
+                        <h3 style="color:var(--primary)">✓ Per chi È</h3>
+                        <ul class="target-list">
+                            <li>Genitori di figli tra gli 11 e i 18 anni che si sentono "tagliati fuori".</li>
+                            <li>Chi è stanco delle urla e vuole una strategia basata sulla calma.</li>
+                            <li>Chi può dedicare 15 minuti al giorno (anche mentre va al lavoro o prima di dormire).
+                            </li>
+                            <li>Chi vuole smettere di "sperare" che passi e vuole agire.</li>
+                        </ul>
+                    </div>
+
+                    <div class="target-card no">
+                        <h3 style="color:var(--badge-red)">✗ Per chi NON è</h3>
+                        <ul class="target-list">
+                            <li>Chi cerca una "pillola magica" per farsi ubbidire come un soldatino.</li>
+                            <li>Chi pensa che il problema sia *solo* del figlio e non vuole mettersi in gioco.</li>
+                            <li>Chi non ha nemmeno 15 minuti per provare a cambiare le cose.</li>
+                            <li><strong>Se cerchi un modo per "controllare" tuo figlio, non funziona.</strong> Funziona
+                                solo se vuoi capirlo e riaprire il dialogo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt-bg">
+        <div class="container">
+            <h2>Perché costa solo 27€?</h2>
+
+            <div class="card">
+                <p>Siamo onesti. Il valore totale del materiale è 188€. Potremmo venderlo a 67€ o 97€.</p>
+
+                <div
+                    style="background:var(--accent-light); padding:15px; border-left:4px solid var(--accent); margin: 20px 0; font-weight:600; color:#854d0e;">
+                    È digitale: niente costi di stampa o spedizione. Vogliamo renderlo accessibile a tutti i genitori in
+                    difficoltà.
+                </div>
+
+                <p>Una singola seduta da un professionista costa 60-80€. Qui hai un metodo completo, validato, e un kit
+                    di strumenti pratici a meno della metà.</p>
+                <p><strong>Nota importante:</strong> Il prezzo di 27€ è un'offerta limitata. Al termine della
+                    promozione, il costo salirà a 67€.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Creato da un genitore, validato da esperti</h2>
+            <div class="card author-card">
+                <img src="./img/profilo.png" alt="Alessandro Francia" class="author-img">
+                <div>
+                    <h3>Mi chiamo Alessandro Francia</h3>
+                    <p>Sono un genitore, proprio come te. Ho due figlie adolescenti e ho vissuto sulla mia pelle la
+                        frustrazione di sentirmi un "carabiniere" in casa mia.</p>
+                    <p>Ho capito che urlare non serviva. Serviva una strategia. Ho sviluppato il Protocollo 15
+                        collaborando con Psicologi dell'Età Evolutiva per creare un sistema che funzionasse anche con i
+                        ragazzi più chiusi.</p>
+                    <div
+                        style="margin-top:15px; font-weight:700; color:var(--primary); background:var(--success-bg); padding:10px; border-radius:8px; display:inline-block;">
+                        ✅ Nel 78% dei casi, i genitori riportano meno conflitti già entro le prime 2 settimane.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt-bg">
+        <div class="container">
+            <h2>Cosa dicono gli altri genitori</h2>
+            <p style="text-align:center; font-size:1.1rem; color:var(--primary); margin-bottom:5px; font-weight:600">
+                "La maggior parte vede un primo miglioramento entro 3–5 giorni."
+            </p>
+            <p style="text-align:center; font-size:0.9rem; margin-bottom:30px">(Screenshot originali, nomi oscurati per
+                privacy)</p>
+
+            <div class="reviews-grid">
+                <img src="./img/review_1.png" alt="Recensione 1" class="review-img">
+                <img src="./img/review_2.png" alt="Recensione 2" class="review-img">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Domande Frequenti</h2>
+            <div style="max-width:800px; margin:0 auto;">
+                <div class="faq-item">
+                    <div class="faq-q">E se mio figlio non vuole parlare?</div>
+                    <div class="faq-a">
+                        <p>Il Capitolo 6 è dedicato proprio a questo. Il metodo funziona anche con la "resistenza
+                            passiva" perché non costringe il ragazzo a parlare, ma crea l'ambiente sicuro affinché
+                            *voglia* farlo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Quanto tempo serve ogni giorno?</div>
+                    <div class="faq-a">
+                        <p>15 minuti. Puoi dividerli o farli tutti insieme. L'importante è la costanza, non l'orario
+                            perfetto.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Funziona per ragazzi sopra i 16 anni?</div>
+                    <div class="faq-a">
+                        <p>Assolutamente sì. Anzi, con i ragazzi più grandi (16-18) i risultati sono spesso più rapidi
+                            perché apprezzano molto il cambio di atteggiamento da "controllo" a "rispetto".</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Come ricevo il materiale?</div>
+                    <div class="faq-a">
+                        <p>Immediatamente via email dopo l'acquisto. È tutto digitale (PDF e MP3), puoi scaricarlo su
+                            telefono, tablet o PC.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">E se non funziona per me?</div>
+                    <div class="faq-a">
+                        <p>Hai la Garanzia 14 Giorni. Se non vedi miglioramenti, scrivici e ti rimborsiamo tutto. Nessun
+                            rischio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt-bg" id="garanzia-section">
+        <div class="container">
+            <div class="card" style="border-color:var(--primary); background: var(--success-bg); text-align:center;">
+                <h3 style="color:var(--primary-dark)">🛡️ Garanzia Rischio Zero</h3>
+                <p>Non decidere ora. Scarica il materiale, provalo per 14 giorni. Se non vedi miglioramenti concreti nel
+                    dialogo con tuo figlio, mandami una email e ti rimborserò l'intera cifra di 27€. Senza domande.</p>
+            </div>
+
+            <div style="text-align:center; margin-top:40px; max-width:600px; margin-left:auto; margin-right:auto;">
+                <p style="font-size:1.1rem"><strong>In 15 giorni puoi passare dal silenzio totale a momenti di vera
+                        connessione.</strong></p>
+                <p>Il primo passo tocca a te.</p>
+
+                <a href="https://pay.dialogodigitale.it/offerta-protocollo-15" class="cta" id="bottom-cta">SÌ, VOGLIO IL
+                    METODO A 27€</a>
+                <p class="cta-sub">Offerta a tempo limitato</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="mobile-sticky-cta">
+        <div style="text-align:center; font-size:0.8rem; font-weight:700; margin-bottom:4px">Protocollo 15 — 27€</div>
+        <a href="https://pay.dialogodigitale.it/offerta-protocollo-15" class="cta">ACCEDI ORA</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Protocollo 15. Tutti i diritti riservati.</p>
+        <p class="footer-support">Serve aiuto? <a
+                href="mailto:assistenza@dialogodigitale.it">assistenza@dialogodigitale.it</a></p>
+        <p style="margin-top:10px; font-size:0.8rem"><a href="https://protocollo15.com/privacy" target="_blank">Privacy
+                Policy</a> | <a href="https://protocollo15.com/termini" target="_blank">Termini e Condizioni</a></p>
+    </footer>
+
+    <script>
+        // FAQ LOGIC
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-q');
+                question.addEventListener('click', function () {
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+
+            // SMART STICKY CTA LOGIC AGGIORNATA
+            const heroCta = document.getElementById('main-hero-cta');
+            const bottomCta = document.getElementById('bottom-cta');
+            const stickyBar = document.querySelector('.mobile-sticky-cta');
+
+            if (heroCta && stickyBar && bottomCta) {
+
+                // Funzione per controllare la visibilità
+                function checkVisibility() {
+                    const heroRect = heroCta.getBoundingClientRect();
+                    const bottomRect = bottomCta.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+
+                    // Hero CTA è uscito dallo schermo (andando su)?
+                    const heroPast = heroRect.bottom < 0;
+
+                    // Bottom CTA è entrato nello schermo?
+                    const bottomVisible = bottomRect.top < windowHeight;
+
+                    // MOSTRA SE: Ho superato la Hero MA non sono ancora arrivato al Bottom
+                    if (heroPast && !bottomVisible) {
+                        stickyBar.classList.add('is-visible');
+                    } else {
+                        stickyBar.classList.remove('is-visible');
+                    }
+                }
+
+                // Ascolta lo scroll
+                window.addEventListener('scroll', checkVisibility);
+                // Controllo iniziale
+                checkVisibility();
+            }
+        });
+    </script>
+
+    <script>
+        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog && window.posthog.__loaded) || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init Rr Mr fi Cr Ar ci Tr Fr capture Mi calculateEventProperties Lr register register_once register_for_session unregister unregister_for_session Hr getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ur jr createPersonProfile zr kr Br opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Dr debug M Nr getPageViewId captureTraceFeedback captureTraceMetric $r".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+        posthog.init('phc_1CxVh1BEhjPuGxZ2qwgo65az68znnsF3qM3myfMBFJE', {
+            api_host: 'https://eu.i.posthog.com',
+            defaults: '2025-05-24',
+            person_profiles: 'always',
+        })
+    </script>
+</body>
+
+</html>

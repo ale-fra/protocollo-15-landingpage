@@ -1,0 +1,263 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import FloatingCloseButton from "../components/FloatingCloseButton.astro";
+---
+
+<Layout title="Privacy Policy - DialogoDigitale">
+    <FloatingCloseButton />
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <h1 class="text-3xl font-bold mb-8">Privacy Policy</h1>
+
+        <div class="prose prose-lg max-w-none text-gray-700">
+            <p class="mb-4">
+                Ultimo aggiornamento: {new Date().toLocaleDateString("it-IT")}
+            </p>
+
+            <!-- 1. INTRODUZIONE -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">1. Introduzione</h2>
+            <p class="mb-4">
+                Benvenuto su DialogoDigitale. La tua privacy è importante per
+                noi. Questa Informativa sulla Privacy descrive come raccogliamo,
+                utilizziamo, proteggiamo e condividiamo i tuoi dati personali
+                quando utilizzi il nostro sito web e i nostri servizi.
+            </p>
+
+            <!-- 2. TITOLARE -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                2. Titolare del Trattamento
+            </h2>
+            <p class="mb-4">
+                Il Titolare del Trattamento è <strong>DialogoDigitale</strong>,
+                con sede a <strong>Roma</strong>. Puoi contattarci all’indirizzo
+                email:
+                <strong>assistenza@dialogodigitale.it</strong>
+            </p>
+
+            <!-- 3. TIPI DI DATI RACCOLTI -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                3. Tipi di Dati Raccolti
+            </h2>
+            <p class="mb-4">
+                Raccogliamo diverse categorie di dati personali, tra cui:
+            </p>
+
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>
+                    <strong>Dati Personali forniti volontariamente:</strong>
+                    nome, email, numero di telefono e altre informazioni fornite
+                    tramite moduli, checkout o iscrizioni.
+                </li>
+
+                <li>
+                    <strong>Dati di Pagamento:</strong>
+                    alcuni dati vengono trattati dai nostri provider esterni (Stripe,
+                    PayPal). Non conserviamo numeri di carte di credito.
+                </li>
+
+                <li>
+                    <strong>Dati Derivati:</strong>
+                    indirizzo IP, tipo di browser, sistema operativo, pagine visitate,
+                    tempo sul sito, URL di provenienza.
+                </li>
+
+                <li>
+                    <strong>Dati comportamentali e analitici:</strong>
+                    raccolti tramite Meta Pixel, TikTok Pixel e PostHog.
+                </li>
+            </ul>
+
+            <!-- 4. FINALITÀ DEL TRATTAMENTO -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                4. Finalità del Trattamento
+            </h2>
+
+            <p class="mb-4">
+                Utilizziamo i tuoi dati personali per le seguenti finalità:
+            </p>
+
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Creare e gestire il tuo account utente.</li>
+                <li>Gestire ordini, pagamenti, fatturazione e assistenza.</li>
+                <li>
+                    Inviare comunicazioni relative ai servizi o agli ordini.
+                </li>
+                <li>
+                    Migliorare il funzionamento del sito e l’esperienza utente.
+                </li>
+                <li>
+                    Analizzare il traffico e misurare le performance tramite
+                    strumenti di analytics.
+                </li>
+                <li>
+                    Effettuare attività di marketing e retargeting tramite Meta
+                    Pixel e TikTok Pixel.
+                </li>
+                <li>
+                    Gestire funnel, automazioni e comunicazioni tramite
+                    Systeme.io.
+                </li>
+            </ul>
+
+            <!-- 5. BASE GIURIDICA -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                5. Base Giuridica del Trattamento
+            </h2>
+            <p class="mb-4">
+                Il trattamento dei dati personali avviene sulla base delle
+                seguenti basi giuridiche:
+            </p>
+
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>
+                    <strong>Consenso</strong> (art. 6.1.a GDPR) per newsletter, marketing
+                    e cookie di profilazione.
+                </li>
+                <li>
+                    <strong>Esecuzione di un contratto</strong> (art. 6.1.b GDPR)
+                    per acquisti, iscrizioni o richieste.
+                </li>
+                <li>
+                    <strong>Obbligo legale</strong> (art. 6.1.c GDPR) per fatturazione
+                    e adempimenti fiscali.
+                </li>
+                <li>
+                    <strong>Legittimo interesse</strong> (art. 6.1.f GDPR) per sicurezza
+                    del sito, prevenzione abusi, analisi aggregate.
+                </li>
+            </ul>
+
+            <!-- 6. COOKIE E PIXEL -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                6. Cookie e Strumenti di Tracciamento
+            </h2>
+            <p class="mb-4">
+                Il sito utilizza cookie tecnici, analitici e, previo consenso,
+                cookie di profilazione e strumenti di tracciamento di terze
+                parti (Meta Pixel, TikTok Pixel, PostHog). Per maggiori
+                informazioni consulta la nostra
+                <a href="/cookie-policy" class="text-blue-600 underline"
+                    >Cookie Policy</a
+                >.
+            </p>
+
+            <!-- 7. SERVIZI DI TERZE PARTI -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                7. Servizi di Terze Parti
+            </h2>
+            <p class="mb-4">
+                Utilizziamo provider esterni per la gestione dei nostri servizi.
+                Questi provider trattano i dati in qualità di Responsabili del
+                Trattamento.
+            </p>
+
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>
+                    <strong>Stripe</strong> – pagamenti, fatturazione (<em
+                        >USA/EU</em
+                    >)
+                </li>
+                <li><strong>PayPal</strong> – pagamenti (<em>USA</em>)</li>
+                <li>
+                    <strong>Systeme.io</strong> – email marketing, funnel, automazioni
+                    (<em>UE</em>)
+                </li>
+                <li>
+                    <strong>Meta Pixel</strong> – analisi e retargeting (<em
+                        >USA</em
+                    >)
+                </li>
+                <li>
+                    <strong>TikTok Pixel</strong> – analisi e retargeting (<em
+                        >USA/CN</em
+                    >)
+                </li>
+                <li>
+                    <strong>PostHog</strong> – analytics (<em
+                        >USA/UK/UE in base alla configurazione</em
+                    >)
+                </li>
+            </ul>
+
+            <!-- 8. TRASFERIMENTI FUORI UE -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                8. Trasferimento dei Dati fuori dall’Unione Europea
+            </h2>
+            <p class="mb-4">
+                Alcuni servizi utilizzati possono comportare il trasferimento
+                dei dati personali al di fuori dell’Unione Europea (es. Stati
+                Uniti). Tali trasferimenti avvengono nel rispetto degli artt.
+                44–49 del GDPR tramite:
+            </p>
+
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Clausole Contrattuali Standard (SCC)</li>
+                <li>Garanzie adeguate fornite dai provider</li>
+                <li>Misure aggiuntive di sicurezza applicate dai fornitori</li>
+            </ul>
+
+            <!-- 9. PERIODO DI CONSERVAZIONE -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                9. Periodo di Conservazione dei Dati
+            </h2>
+            <p class="mb-4">
+                Conserviamo i tuoi dati personali per il tempo strettamente
+                necessario alle finalità del trattamento e comunque non oltre:
+            </p>
+
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>10 anni per obblighi fiscali e contabili;</li>
+                <li>fino a revoca del consenso per finalità di marketing;</li>
+                <li>24 mesi per dati raccolti tramite form e iscrizioni;</li>
+                <li>
+                    tempo necessario all’erogazione dei servizi per i dati di
+                    account e fatturazione.
+                </li>
+            </ul>
+
+            <!-- 10. DIRITTI DELL'UTENTE -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                10. Diritti dell’Interessato
+            </h2>
+            <p class="mb-4">Ai sensi del GDPR hai diritto di:</p>
+
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Accedere ai tuoi dati personali</li>
+                <li>Richiedere la rettifica o la cancellazione</li>
+                <li>Limitare il trattamento</li>
+                <li>Opporti al trattamento</li>
+                <li>Richiedere la portabilità dei dati</li>
+                <li>Revocare il consenso in qualsiasi momento</li>
+                <li>Proporre reclamo al Garante della Privacy</li>
+            </ul>
+
+            <p class="mb-4">
+                Per esercitare i tuoi diritti puoi contattarci a:
+                <strong>[INSERISCI EMAIL]</strong>.
+            </p>
+
+            <!-- 11. SICUREZZA DEI DATI -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                11. Sicurezza dei Dati
+            </h2>
+            <p class="mb-4">
+                Adottiamo misure tecniche e organizzative per proteggere i dati
+                personali da accessi non autorizzati, perdita o alterazione.
+                Tuttavia nessuna trasmissione online può essere considerata
+                completamente sicura.
+            </p>
+
+            <!-- 12. MODIFICHE -->
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                12. Modifiche a questa Informativa
+            </h2>
+            <p class="mb-4">
+                Ci riserviamo il diritto di aggiornare questa Privacy Policy in
+                qualsiasi momento. Le modifiche entreranno in vigore non appena
+                pubblicate sul sito.
+            </p>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>

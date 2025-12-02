@@ -1,0 +1,192 @@
+---
+import { Image } from "astro:assets";
+import coverImage from "../assets/Copertina.png";
+import { config } from "../config";
+---
+
+<section class="bg-white border-b border-gray-200 py-10 md:py-16" id="offerta">
+    <div class="container mx-auto px-5 max-w-[900px]">
+        <h2
+            class="text-2xl md:text-3xl font-extrabold text-secondary text-center mb-2.5"
+        >
+            Il Kit Completo "Salva-Dialogo"
+        </h2>
+        <p class="text-center mb-8 text-text-light">
+            Tutto quello che ti serve per sbloccare la situazione, oggi.
+        </p>
+
+        <div
+            class="rounded-xl overflow-hidden border border-gray-300 shadow-soft"
+        >
+            <!-- Header Blue -->
+            <div
+                class="bg-primary-dark text-white text-center py-3 font-semibold uppercase tracking-wide text-sm"
+            >
+                🔥 Offerta Black Friday: 5 Bonus Inclusi
+            </div>
+
+            <!-- Product image -->
+            <div class="flex justify-center py-6">
+                <Image
+                    src={coverImage}
+                    alt="Protocollo 15"
+                    class="w-[150px] md:w-[170px]"
+                />
+            </div>
+
+            <!-- Product title -->
+            <h3 class="text-center text-secondary font-extrabold text-xl mb-1">
+                Protocollo 15 (Metodo Completo)
+            </h3>
+            <p class="text-center text-gray-500 text-sm mb-6">
+                La guida passo-passo in formato eBook PDF
+            </p>
+
+            <!-- BONUS LIST -->
+            <!-- Lista Bonus Migliorata -->
+            <div class="divide-y divide-gray-200">
+                <!-- ROW 1 -->
+                <div
+                    class="flex items-start justify-between py-3 px-5 bg-white"
+                >
+                    <div class="flex items-start gap-3">
+                        <span class="text-lg">📝</span>
+                        <div>
+                            <p class="font-semibold text-secondary">
+                                Script Anti-Conflitto
+                            </p>
+                            <p class="text-gray-500 text-sm">
+                                Trasformazione: evita escalation e litigi in
+                                meno di 30 secondi.
+                            </p>
+                        </div>
+                    </div>
+                    <span
+                        class="text-primary-dark text-xs md:text-sm font-semibold tracking-wide"
+                    >
+                        GRATIS
+                    </span>
+                </div>
+
+                <!-- ROW 2 -->
+                <div
+                    class="flex items-start justify-between py-3 px-5 bg-[#FBFBFB]"
+                >
+                    <div class="flex items-start gap-3">
+                        <span class="text-lg">⛔</span>
+                        <div>
+                            <p class="font-semibold text-secondary">
+                                I 12 Errori Digitali
+                            </p>
+                            <p class="text-gray-500 text-sm">
+                                Trasformazione: smetti di peggiorare la
+                                situazione senza accorgertene.
+                            </p>
+                        </div>
+                    </div>
+                    <span
+                        class="text-primary-dark text-xs md:text-sm font-semibold tracking-wide"
+                    >
+                        GRATIS
+                    </span>
+                </div>
+
+                <!-- ROW 3 -->
+                <div
+                    class="flex items-start justify-between py-3 px-5 bg-white"
+                >
+                    <div class="flex items-start gap-3">
+                        <span class="text-lg">📅</span>
+                        <div>
+                            <p class="font-semibold text-secondary">
+                                Planner 15 Giorni
+                            </p>
+                            <p class="text-gray-500 text-sm">
+                                Trasformazione: segui il metodo senza stress,
+                                anche se lavori tutto il giorno.
+                            </p>
+                        </div>
+                    </div>
+                    <span
+                        class="text-primary-dark text-xs md:text-sm font-semibold tracking-wide"
+                    >
+                        GRATIS
+                    </span>
+                </div>
+
+                <!-- ROW 4 -->
+                <div
+                    class="flex items-start justify-between py-3 px-5 bg-[#FBFBFB]"
+                >
+                    <div class="flex items-start gap-3">
+                        <span class="text-lg">🎧</span>
+                        <div>
+                            <p class="font-semibold text-secondary">
+                                Audio "Reset Emotivo"
+                            </p>
+                            <p class="text-gray-500 text-sm">
+                                Ti aiuta a ritrovare la calma in 5 minuti.
+                            </p>
+                        </div>
+                    </div>
+                    <span
+                        class="text-primary-dark text-xs md:text-sm font-semibold tracking-wide"
+                    >
+                        GRATIS
+                    </span>
+                </div>
+
+                <!-- ROW 5 -->
+                <div
+                    class="flex items-start justify-between py-3 px-5 bg-white"
+                >
+                    <div class="flex items-start gap-3">
+                        <span class="text-lg">☑️</span>
+                        <div>
+                            <p class="font-semibold text-secondary">
+                                Checklist delle 3C
+                            </p>
+                            <p class="text-gray-500 text-sm">
+                                Ti guida giorno con passi chiari per non
+                                ricadere nei vecchi schemi.
+                            </p>
+                        </div>
+                    </div>
+                    <span
+                        class="text-primary-dark text-xs md:text-sm font-semibold tracking-wide"
+                    >
+                        GRATIS
+                    </span>
+                </div>
+            </div>
+
+            <!-- BLOCCO PREZZO -->
+            <div
+                class="bg-[#FFF8EE] border-t border-gray-200 text-center py-8 px-5"
+            >
+                <p class="text-gray-500 text-sm">
+                    VALORE TOTALE: {config.originalPrice}
+                </p>
+                <p class="text-gray-700 font-semibold text-sm mt-1 mb-4">
+                    OFFERTA SPECIALE OGGI:
+                </p>
+                <p class="text-secondary font-extrabold text-5xl mb-6">
+                    {config.price}
+                </p>
+
+                <a
+                    href={config.ctaUrl}
+                    id="offer-cta"
+                    class="js-main-cta block w-full max-w-[300px] mx-auto bg-primary text-white py-4 rounded-lg font-bold text-lg
+                  hover:bg-primary-dark transition"
+                >
+                    SCARICA TUTTO A {config.price}
+                </a>
+
+                <p class="text-gray-500 text-xs mt-4">
+                    Garanzia Soddisfatti o Rimborsati 14 Giorni
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import review1 from "../assets/review_1.png";
+import review2 from "../assets/review_2.png";
+---
+
+<section class="bg-white border-b border-gray-200 py-10 md:py-16">
+    <div class="container mx-auto px-5 max-w-[900px]">
+        <h2
+            class="text-2xl md:text-3xl font-extrabold text-secondary text-center mb-6"
+        >
+            Cosa dicono gli altri genitori
+        </h2>
+        <p class="text-center text-lg text-primary mb-1.5 font-semibold">
+            "La maggior parte vede un primo miglioramento entro 3–5 giorni."
+        </p>
+        <p class="text-center text-sm mb-8 text-text-light">
+            (Screenshot originali, foto profilo oscurate per privacy)
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
+            <Image
+                src={review1}
+                alt="Recensione 1"
+                class="w-full rounded-xl border border-gray-200 shadow-soft block"
+            />
+            <Image
+                src={review2}
+                alt="Recensione 2"
+                class="w-full rounded-xl border border-gray-200 shadow-soft block"
+            />
+        </div>
+    </div>
+</section>

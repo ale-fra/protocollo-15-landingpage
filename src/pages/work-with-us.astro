@@ -1,0 +1,160 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import FloatingCloseButton from "../components/FloatingCloseButton.astro";
+
+const jobs = [
+    {
+        title: "Psicologo / Pedagogista",
+        description:
+            "Cerchiamo un professionista in psicologia dell'età evolutiva o pedagogia per contribuire all’evoluzione continua del Protocollo 15 e allo sviluppo di nuovi strumenti e percorsi a supporto di genitori e figli.",
+        requirements: [
+            "Laurea in Psicologia o Pedagogia",
+            "Iscrizione all'albo professionale (se prevista)",
+            "Esperienza con adolescenti, preadolescenti e famiglie",
+            "Passione per il digitale, l’educazione e l’impatto sociale",
+            "Disponibilità a collaborare in partita IVA",
+        ],
+    },
+    {
+        title: "Digital Marketing Specialist",
+        description:
+            "Cerchiamo una figura creativa e analitica per gestire e scalare le campagne di advertising e la comunicazione digitale di Protocollo 15, supportando il lancio e la crescita continua del libro e dei progetti collegati.",
+        requirements: [
+            "Esperienza comprovata in Meta Ads (Facebook & Instagram)",
+            "Conoscenza di strumenti di tracking (es. pixel, analytics)",
+            "Capacità di copywriting persuasivo orientato alla conversione",
+            "Autonomia operativa, test A/B e orientamento ai risultati",
+            "Disponibilità a collaborare in partita IVA",
+        ],
+    },
+    {
+        title: "Customer Success Specialist",
+        description:
+            "Cerchiamo una persona empatica e organizzata per supportare i genitori che acquistano il Protocollo 15, accompagnandoli nell’utilizzo della piattaforma e dei materiali, raccogliendo feedback utili per migliorare costantemente il progetto.",
+        requirements: [
+            "Ottime doti comunicative e relazionali, scritte e orali",
+            "Spiccata pazienza ed empatia nell’ascolto",
+            "Dimestichezza con strumenti di ticketing, email e CRM",
+            "Attitudine al problem solving e disponibilità flessibile",
+            "Disponibilità a collaborare in partita IVA",
+        ],
+    },
+];
+---
+
+<Layout title="Lavora con noi - Protocollo 15">
+    <FloatingCloseButton />
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4 text-gray-900">
+                Lavora con noi
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Protocollo 15 è un progetto in continua evoluzione: aggiorniamo
+                costantemente i nostri materiali e stiamo lavorando a nuovi
+                strumenti digitali per aiutare genitori e figli a ritrovare
+                dialogo e connessione nell'era digitale.
+            </p>
+        </div>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 mb-3 text-center">
+                Perché unirti a Protocollo 15
+            </h2>
+            <p class="text-gray-600 max-w-3xl mx-auto text-center">
+                Lavoriamo per avere un impatto reale sulla vita delle famiglie.
+                Se ti appassiona l'educazione, il benessere dei ragazzi e il
+                digitale, qui puoi contribuire in modo concreto alla crescita di
+                un progetto che non si limita a un libro, ma a un ecosistema di
+                risorse in continuo aggiornamento.
+            </p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-xl font-semibold text-gray-900 mb-3">
+                Posizioni aperte
+            </h2>
+            <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-1">
+                {
+                    jobs.map((job) => (
+                        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                                {job.title}
+                            </h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                {job.description}
+                            </p>
+                            <div class="mb-6">
+                                <h4 class="font-semibold text-gray-900 mb-2">
+                                    Requisiti:
+                                </h4>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    {job.requirements.map((req) => (
+                                        <li>{req}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <p class="text-sm text-gray-500">
+                                Tipologia di collaborazione:{" "}
+                                <strong>partita IVA</strong>.
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-semibold text-gray-900 mb-3">
+                Cosa offriamo
+            </h2>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 mb-8">
+                <li>
+                    Collaborazioni in partita IVA, principalmente da remoto.
+                </li>
+                <li>
+                    Ambiente orientato all’impatto e alla crescita personale.
+                </li>
+                <li>
+                    Possibilità di contribuire all’aggiornamento continuo del
+                    progetto e dei materiali.
+                </li>
+                <li>
+                    Team snello, comunicazione diretta e responsabilità
+                    condivisa.
+                </li>
+            </ul>
+        </section>
+
+        <div
+            class="mt-12 text-center bg-slate-50 rounded-2xl p-8 border border-gray-200"
+        >
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                Vuoi unirti al team?
+            </h2>
+            <p class="text-gray-600 mb-4">
+                Se pensi di essere la persona giusta per una di queste
+                posizioni, o se desideri inviarci una candidatura spontanea,
+                scrivici raccontandoci chi sei e perché vorresti collaborare con
+                noi.
+            </p>
+            <p class="text-gray-600 mb-6">
+                Inserisci nell’oggetto dell’email la posizione per cui ti
+                candidi (es. “Candidatura – Psicologo / Pedagogista”) e allega
+                il tuo CV e, se disponibile, un breve portfolio o referenze.
+            </p>
+            <a
+                href="mailto:hello@dialogodigitale.it"
+                class="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+                Invia CV a hello@dialogodigitale.it
+            </a>
+            <p class="text-xs text-gray-400 mt-4">
+                Le candidature inviate saranno trattate nel rispetto della
+                nostra Privacy Policy.
+            </p>
+        </div>
+    </main>
+    <Footer />
+</Layout>

@@ -1,0 +1,228 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import FloatingCloseButton from "../components/FloatingCloseButton.astro";
+---
+
+<Layout title="Cookie Policy - Protocollo 15">
+    <FloatingCloseButton />
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <h1 class="text-3xl font-bold mb-8">Cookie Policy</h1>
+
+        <div class="prose prose-lg max-w-none text-gray-700">
+            <p class="mb-4">
+                Ultimo aggiornamento: {new Date().toLocaleDateString("it-IT")}
+            </p>
+
+            {/* 1. COSA SONO I COOKIE */}
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                1. Cosa sono i Cookie
+            </h2>
+            <p class="mb-4">
+                I cookie sono piccoli file di testo che i siti web visitati
+                dagli utenti inviano ai loro terminali, dove vengono memorizzati
+                per essere ritrasmessi agli stessi siti alle visite successive.
+                I cookie permettono al sito di riconoscere il dispositivo
+                dell’utente, ricordare le sue preferenze e offrire un’esperienza
+                di navigazione più efficiente.
+            </p>
+
+            {/* 2. TIPI DI COOKIE UTILIZZATI */}
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                2. Tipologie di Cookie utilizzati sul Sito
+            </h2>
+            <p class="mb-4">
+                Su questo sito utilizziamo diverse tipologie di cookie, sia di
+                prima parte (installati direttamente dal sito) sia di terze
+                parti (installati da domini diversi).
+            </p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">
+                2.1 Cookie tecnici (necessari)
+            </h3>
+            <p class="mb-4">
+                Sono cookie necessari al corretto funzionamento del sito e non
+                richiedono il consenso dell’utente. Permettono, ad esempio, di:
+            </p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>mantenere la sessione utente attiva;</li>
+                <li>gestire il carrello e il processo di checkout;</li>
+                <li>garantire la sicurezza della navigazione;</li>
+                <li>
+                    memorizzare eventuali preferenze di base (come la lingua).
+                </li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">
+                2.2 Cookie funzionali
+            </h3>
+            <p class="mb-4">
+                Questi cookie consentono di ricordare alcune scelte effettuate
+                dall’utente (come dati inseriti in form o preferenze di
+                visualizzazione) e migliorano la funzionalità e la
+                personalizzazione del sito. L’utilizzo di tali cookie può
+                richiedere il tuo consenso.
+            </p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">
+                2.3 Cookie statistici / analitici
+            </h3>
+            <p class="mb-4">
+                I cookie analitici sono utilizzati per raccogliere informazioni
+                in forma aggregata sul numero di utenti e su come questi
+                visitano il sito, al fine di migliorare i contenuti e i servizi
+                offerti. In base alla configurazione, possono essere assimilati
+                ai cookie tecnici oppure richiedere il consenso.
+            </p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">
+                2.4 Cookie di profilazione e marketing
+            </h3>
+            <p class="mb-4">
+                Questi cookie vengono utilizzati per tracciare la navigazione
+                dell’utente e creare profili basati sui suoi interessi, al fine
+                di mostrare annunci personalizzati. L’uso di cookie di
+                profilazione richiede il tuo consenso esplicito tramite il
+                banner cookie.
+            </p>
+
+            {/* 3. COOKIE E STRUMENTI DI TERZE PARTI UTILIZZATI */}
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                3. Cookie e Strumenti di Terze Parti utilizzati
+            </h2>
+            <p class="mb-4">
+                Il sito utilizza, oltre ai propri cookie, alcuni servizi di
+                terze parti che potrebbero installare cookie e strumenti di
+                tracciamento sul tuo dispositivo. Qui di seguito una panoramica
+                dei principali servizi.
+            </p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">
+                3.1 Meta Pixel (Facebook)
+            </h3>
+            <p class="mb-4">
+                Utilizziamo il Meta Pixel per monitorare le conversioni,
+                misurare l’efficacia delle nostre campagne pubblicitarie e
+                creare pubblici personalizzati per attività di remarketing su
+                Facebook e Instagram. Attraverso questo strumento possono essere
+                raccolte informazioni sulla navigazione e sulle interazioni con
+                il sito, collegate al tuo account Meta, se connesso.
+            </p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">3.2 TikTok Pixel</h3>
+            <p class="mb-4">
+                Utilizziamo il TikTok Pixel per analizzare le conversioni
+                provenienti dalle campagne su TikTok e per attività di
+                remarketing. Anche in questo caso vengono raccolte informazioni
+                sulla tua navigazione e sulle azioni compiute sul sito,
+                collegate al tuo account TikTok, se presente.
+            </p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">
+                3.3 PostHog (analytics)
+            </h3>
+            <p class="mb-4">
+                PostHog è una piattaforma di analytics che ci permette di
+                analizzare l’utilizzo del sito, le interazioni degli utenti con
+                le pagine e i funnel di conversione. I dati raccolti sono
+                utilizzati in forma aggregata per migliorare l’esperienza utente
+                e le prestazioni del sito.
+            </p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">
+                3.4 Stripe e PayPal (cookie tecnici di pagamento)
+            </h3>
+            <p class="mb-4">
+                Durante il processo di acquisto possono essere installati cookie
+                da parte di Stripe e PayPal, necessari per gestire il pagamento
+                in sicurezza, prevenire frodi e completare la transazione. Si
+                tratta principalmente di cookie tecnici e di sicurezza legati al
+                servizio di pagamento.
+            </p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">
+                3.5 Systeme.io (funnel, automazioni e tracking)
+            </h3>
+            <p class="mb-4">
+                Utilizziamo Systeme.io per la gestione di funnel, automazioni,
+                invio di email e aree riservate. Systeme.io può installare
+                cookie per:
+            </p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>riconoscere gli utenti autenticati;</li>
+                <li>gestire iscrizioni, lead e tag utente;</li>
+                <li>tracciare le conversioni all’interno dei funnel.</li>
+            </ul>
+
+            <p class="mb-4">
+                Ti invitiamo a consultare le rispettive informative privacy e
+                cookie di queste terze parti per maggiori dettagli sulle
+                modalità di trattamento dei dati.
+            </p>
+
+            {/* 4. GESTIONE DEL CONSENSO */}
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                4. Gestione del Consenso ai Cookie
+            </h2>
+            <p class="mb-4">
+                Al primo accesso al sito viene mostrato un banner tramite il
+                quale puoi:
+            </p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>accettare tutti i cookie;</li>
+                <li>rifiutare i cookie non necessari;</li>
+                <li>
+                    personalizzare le tue preferenze per categorie di cookie.
+                </li>
+            </ul>
+            <p class="mb-4">
+                Puoi modificare in qualsiasi momento le tue preferenze relative
+                ai cookie richiamando il banner (se presente sul sito) oppure
+                cancellando i cookie dal tuo browser.
+            </p>
+
+            {/* 5. COME DISABILITARE I COOKIE DAL BROWSER */}
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                5. Gestione dei Cookie tramite le impostazioni del browser
+            </h2>
+            <p class="mb-4">
+                Puoi gestire o disabilitare i cookie anche tramite le
+                impostazioni del tuo browser. Di seguito i link alle pagine di
+                supporto dei principali browser:
+            </p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Chrome</li>
+                <li>Firefox</li>
+                <li>Safari</li>
+                <li>Edge</li>
+            </ul>
+            <p class="mb-4">
+                La disattivazione totale dei cookie potrebbe compromettere il
+                corretto funzionamento di alcune parti del sito (ad esempio area
+                riservata, carrello o processo di acquisto).
+            </p>
+
+            {/* 6. AGGIORNAMENTI */}
+            <h2 class="text-2xl font-semibold mt-8 mb-4">
+                6. Aggiornamenti alla presente Cookie Policy
+            </h2>
+            <p class="mb-4">
+                Ci riserviamo il diritto di modificare in qualsiasi momento la
+                presente Cookie Policy. Le modifiche saranno pubblicate su
+                questa pagina e, se necessario, ti verrà richiesto nuovamente il
+                consenso tramite il banner cookie.
+            </p>
+
+            {/* 7. CONTATTI */}
+            <h2 class="text-2xl font-semibold mt-8 mb-4">7. Contatti</h2>
+            <p class="mb-4">
+                Per qualsiasi informazione relativa alla presente Cookie Policy
+                o al trattamento dei dati personali puoi contattarci
+                all’indirizzo email indicato nel footer del sito o nella nostra
+                Privacy Policy.
+            </p>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>

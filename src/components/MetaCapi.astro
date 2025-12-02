@@ -1,0 +1,159 @@
+---
+import { config } from "../config";
+---
+
+<!-- Facebook Pixel Code -->
+<script define:vars={{ pixelId: config.pixelId }}>
+    !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod
+                ? n.callMethod.apply(n, arguments)
+                : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+    })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+    );
+
+    fbq("init", pixelId, {
+        cookie_domain: "dialogodigitale.it",
+    });
+    fbq("track", "PageView");
+</script>
+<noscript>
+    <img
+        height="1"
+        width="1"
+        style="display:none"
+        src={`https://www.facebook.com/tr?id=${config.pixelId}&ev=PageView&noscript=1`}
+    />
+</noscript>
+<!-- End Facebook Pixel Code -->
+<script define:vars={{ n8nWebhookUrl: config.n8nWebhookUrl }}>
+    const N8N_WEBHOOK_URL = n8nWebhookUrl;
+
+    // --- 1. FUNZIONI DI UTILITÀ ---
+
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+            expires = "; expires=" + date.toUTCString();
+        }
+
+        // IL SEGRETO È QUI: domain=.dialogodigitale.it
+        // Nota il punto iniziale, serve per dire "questo e tutti i sottodomini"
+        const domain = ".dialogodigitale.it";
+
+        document.cookie =
+            name +
+            "=" +
+            (value || "") +
+            expires +
+            "; path=/; domain=" +
+            domain +
+            "; SameSite=Lax";
+    }
+
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(";").shift();
+        return null;
+    }
+
+    // Genera un ID nel formato di Facebook: fb.1.timestamp.random
+    function generateFbp() {
+        return `fb.1.${Date.now()}.${Math.floor(Math.random() * 1000000000)}`;
+    }
+
+    // Genera FBC solo se c'è fbclid nell'URL
+    function generateFbc() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const fbclid = urlParams.get("fbclid");
+        if (fbclid) {
+            return `fb.1.${Date.now()}.${fbclid}`;
+        }
+        return null;
+    }
+
+    // --- 2. LOGICA "FALLBACK" ---
+
+    function ensureFacebookCookies() {
+        // A. Gestione _fbp (Browser ID)
+        let fbp = getCookie("_fbp");
+        if (!fbp) {
+            // Se non c'è (Pixel bloccato o prima visita), lo creiamo noi!
+            fbp = generateFbp();
+            setCookie("_fbp", fbp, 730); // Durata 2 anni come standard Meta
+            console.log("AdBlock attivo? Ho generato _fbp manualmente:", fbp);
+        }
+
+        // B. Gestione _fbc (Click ID)
+        let fbc = getCookie("_fbc");
+        if (!fbc) {
+            const newFbc = generateFbc();
+            if (newFbc) {
+                fbc = newFbc;
+                setCookie("_fbc", fbc, 90); // Durata 3 mesi
+                console.log(
+                    "Ho generato _fbc manualmente dai parametri URL:",
+                    fbc,
+                );
+            }
+        }
+
+        return { fbp, fbc };
+    }
+
+    // --- 3. INVIO DATI ---
+
+    function sendTracking() {
+        const eventId =
+            "view_" + Date.now() + "_" + Math.floor(Math.random() * 1000000);
+
+        // Assicuriamoci che i cookie esistano (anche se AdBlock ha ucciso il Pixel)
+        const cookies = ensureFacebookCookies();
+
+        // Tentativo Tracking Browser (potrebbe fallire se bloccato)
+        if (typeof fbq !== "undefined") {
+            fbq("track", "ViewContent", {}, { eventID: eventId });
+        }
+
+        // Tracking Server (questo passa SEMPRE)
+        const payload = {
+            event_name: "ViewContent",
+            event_id: eventId,
+            event_source_url: window.location.href,
+            user_agent: navigator.userAgent,
+            fbp: cookies.fbp,
+            fbc: cookies.fbc,
+            // Aggiungi IP se n8n non lo rileva automaticamente dagli header
+        };
+
+        fetch(N8N_WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        })
+            .then(() => console.log("CAPI Inviato con successo"))
+            .catch(console.error);
+    }
+
+    // Esegui
+    window.addEventListener("load", sendTracking);
+</script>

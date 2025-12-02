@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import profileImage from '../assets/profilo.png';
+---
+
+<section class="py-10 md:py-16 border-b border-gray-200">
+    <div class="container mx-auto px-5 max-w-[900px]">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-secondary text-center mb-6">Creato da un genitore, validato da esperti</h2>
+        <div class="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-soft flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-5">
+            <Image src={profileImage} alt="Alessandro Francia" class="w-[140px] h-[140px] rounded-full border-4 border-primary object-cover" />
+            <div>
+                <h3 class="text-xl font-bold mb-3">Mi chiamo Alessandro Francia</h3>
+                <p class="mb-4 text-text-light">Sono un genitore, proprio come te. Ho due figlie adolescenti e ho vissuto sulla mia pelle la frustrazione di sentirmi un "carabiniere" in casa mia.</p>
+                <p class="mb-4 text-text-light">Ho capito che urlare non serviva. Serviva una strategia. Ho sviluppato il Protocollo 15 collaborando con Psicologi dell'Età Evolutiva per creare un sistema che funzionasse anche con i ragazzi più chiusi.</p>
+                <div class="mt-4 font-bold text-primary bg-success-bg p-2.5 rounded-lg inline-block">
+                    ✅ Nel 78% dei casi, i genitori riportano meno conflitti già entro le prime 2 settimane.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
